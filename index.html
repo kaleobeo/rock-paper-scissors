@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    
+    <script>
+
+        //Create variable playerSelection that prompts for player to input "rock" "paper" or "scissors"
+        
+        function askPlayer() {
+            return(prompt('Please choose Rock, Paper or Scissors.'))
+        }
+            
+        //Create function computerPlay that randomly chooses "rock" "paper" or "scissors" and returns it
+            function computerPlay() {
+                let computerSelectionNum = Math.floor(Math.random(2)*10)
+                if (computerSelectionNum === 0) {
+                    return("scissors")
+                } else if (computerSelectionNum === 1) {
+                    return("rock")
+                } else {
+                    return("paper")
+                }
+
+            }
+        //Create function playRound that compares computerSelection and playerSelection and declares a winner
+          
+        //Create function game that plays five rounds and declares a winner
+        
+        
+
+    </script>
+
+</body>
+</html>
