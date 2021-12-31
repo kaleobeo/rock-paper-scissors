@@ -16,12 +16,18 @@
         //Create variable playerSelection that prompts for player to input "rock" "paper" or "scissors"
         
         function askPlayer() {
-            return(prompt('Please choose Rock, Paper or Scissors.'))
-        }
+            let message = prompt('Please choose Rock, Paper or Scissors.')
+            if (message.toLowerCase() =="rock" || message.toLowerCase() =="scissors" || message.toLowerCase() == "paper") {
+                return message
+            } else {
+            askPlayer()
+            }
+        } 
             
         //Create function computerPlay that randomly chooses "rock" "paper" or "scissors" and returns it
             function computerPlay() {
-                let computerSelectionNum = Math.floor(Math.random(2)*10)
+                let computerSelectionNum; 
+                computerSelectionNum= Math.floor(Math.random()*3)
                 if (computerSelectionNum === 0) {
                     return("scissors")
                 } else if (computerSelectionNum === 1) {
@@ -31,47 +37,71 @@
                 }
 
             }
-        //Create function playRound that compares computerSelection and playerSelection then declares a winner
+        //Create function compare that compares computerSelection and playerSelection then declares a winner
         function compare(player, computer) {
                 if (player.toLowerCase() === "paper") {
                     if (computer === "paper") {
-                        return("Tie.")
+                        alert("Tie.")
+                        return
                     } else if (computer === "rock") {
                         ++playerPoints
-                        return("Player wins this this round.")
+                        alert("Player wins this this round.")
+                        return
                     } else {
                         ++computerPoints
-                        return("Computer wins this round.")
+                        alert("Computer wins this round.")
+                        return
                     }
                 } else if (player.toLowerCase() === "rock") {
                     if (computer === "paper") {
                         ++computerPoints
-                        return("Computer wins this round.")
+                        alert("Computer wins this round.")
+                        return
                     } else if (computer === "rock") {
-                        return("Tie.")
+                        alert("Tie.")
+                        return
                     } else {
                         ++playerPoints
-                        return("Player wins this round.")
+                        alert("Player wins this round.")
+                        return
                     }
                 } else if (player.toLowerCase() === "scissors") {
                     if (computer === "paper") {
                         ++playerPoints
-                        return("Player wins this round.")
+                        alert("Player wins this round.")
+                        return
                     } else if (computer === "rock") {
                         ++computerPoints
-                        return("Computer wins this this round.")
+                        alert("Computer wins this this round.")
+                        return
                     } else {
                         ++computerPoints
-                        return("Tie.")
+                        alert("Tie.")
+                        return
                     }
                 } 
             }
 
         //Plays a round
-   
+            function playRound() {
+                return(compare(askPlayer(), computerPlay()))
+            }
         //Create function game that plays five rounds and declares a winner
+            function game(rounds) {
+                for (let i = 0; i < rounds; i++) {
+                    playRound()
+                }
+                if (computerPoints > playerPoints) {
+                    alert(`Computer wins this game! Player: ${playerPoints}, Computer: ${computerPoints}`)
+                } else if (computerPoints == playerPoints) {
+                    alert(`This game is a tie. Player: ${playerPoints}, Computer: ${computerPoints}`)
+                } 
+                else {
+                    alert(`Player wins this game! Player: ${playerPoints}, Computer: ${computerPoints}`)
+                }
+            }
         
-        
+        game(prompt("How many rounds would you like to play?", "5"))
 
     </script>
 
