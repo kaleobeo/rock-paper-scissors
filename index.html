@@ -9,6 +9,9 @@
 <body>
     
     <script>
+        //Create variables for player and computer points
+        let playerPoints = 0;
+        let computerPoints = 0;
 
         //Create variable playerSelection that prompts for player to input "rock" "paper" or "scissors"
         
@@ -28,8 +31,44 @@
                 }
 
             }
-        //Create function playRound that compares computerSelection and playerSelection and declares a winner
-          
+        //Create function playRound that compares computerSelection and playerSelection then declares a winner
+        function compare(player, computer) {
+                if (player.toLowerCase() === "paper") {
+                    if (computer === "paper") {
+                        return("Tie.")
+                    } else if (computer === "rock") {
+                        ++playerPoints
+                        return("Player wins this this round.")
+                    } else {
+                        ++computerPoints
+                        return("Computer wins this round.")
+                    }
+                } else if (player.toLowerCase() === "rock") {
+                    if (computer === "paper") {
+                        ++computerPoints
+                        return("Computer wins this round.")
+                    } else if (computer === "rock") {
+                        return("Tie.")
+                    } else {
+                        ++playerPoints
+                        return("Player wins this round.")
+                    }
+                } else if (player.toLowerCase() === "scissors") {
+                    if (computer === "paper") {
+                        ++playerPoints
+                        return("Player wins this round.")
+                    } else if (computer === "rock") {
+                        ++computerPoints
+                        return("Computer wins this this round.")
+                    } else {
+                        ++computerPoints
+                        return("Tie.")
+                    }
+                } 
+            }
+
+        //Plays a round
+   
         //Create function game that plays five rounds and declares a winner
         
         
