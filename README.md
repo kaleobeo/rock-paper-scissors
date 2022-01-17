@@ -1,2 +1,2 @@
 # rock-paper-scissors
-JS only rock paper scissors game
+Updated Rock Paper Scissors game with a UI

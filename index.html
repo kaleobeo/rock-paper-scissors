@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
@@ -82,28 +83,23 @@
                 } 
             }
 
-        //Plays a round
+        //Plays a round as 
             function playRound() {
                 return(compare(askPlayer(), computerPlay()))
             }
-        //Create function game that plays five rounds and declares a winner
-            function game(rounds) {
-                for (let i = 0; i < rounds; i++) {
-                    playRound()
-                }
-                if (computerPoints > playerPoints) {
-                    alert(`Computer wins this game! Player: ${playerPoints}, Computer: ${computerPoints}`)
-                } else if (computerPoints == playerPoints) {
-                    alert(`This game is a tie. Player: ${playerPoints}, Computer: ${computerPoints}`)
-                } 
-                else {
-                    alert(`Player wins this game! Player: ${playerPoints}, Computer: ${computerPoints}`)
-                }
-            }
-        
-        game(prompt("How many rounds would you like to play?", "5"))
+
 
     </script>
 
+    <div class="content">
+        <h1>Rock Paper Scissors</h1>
+        <div class="buttons">
+            <button class="button rock">Rock</button>
+            <button class="button paper">Paper</button>
+            <button class="button scissors">Scissors</button>
+        </div>
+
+        <h2 class="result"></h2>
+    </div>
 </body>
 </html>
